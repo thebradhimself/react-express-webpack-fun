@@ -20,13 +20,13 @@ class BoardForm extends Component {
    })
  }
  render() {
-   return (<div className='center'>
-             <form onSubmit={(e) => this.addBoard(e)}>
+   return (<div className='center row'>
+             <form className='col m4' onSubmit={(e) => this.addBoard(e)}>
                <input type='text' placeholder='Name' ref='name' />
                <button className='btn' type='submit'>Add Board</button>
              </form>
            </div>);
-   }
+ }
 }
 
 export default BoardForm;

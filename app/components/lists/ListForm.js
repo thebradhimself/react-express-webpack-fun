@@ -20,8 +20,8 @@ class ListForm extends Component {
    });
  }
  render() {
-   return (<div className='center'>
-             <form onSubmit={(e) => this.addList(e)}>
+   return (<div className='center row'>
+             <form className='col m4' onSubmit={(e) => this.addList(e)}>
                <input type='text' placeholder='Name' ref='name' />
                <button className='btn' type='submit'>Add List</button>
              </form>

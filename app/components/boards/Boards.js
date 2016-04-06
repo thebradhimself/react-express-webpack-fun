@@ -10,9 +10,11 @@ class Boards extends Component {
    this.addBoard = this.addBoard.bind(this);
    this.state = { boards: [] };
  }
+
  componentDidMount(){
    this.getBoards();
  }
+
  getBoards(){
    $.ajax({
      url: '/boards',
@@ -24,19 +26,24 @@ class Boards extends Component {
      console.log(msg)
    });
  }
+
  addBoard(board){
    let boards = this.state.boards;
    boards.push(board);
    this.setState({ board: board });
  }
+
  render() {
    let boards = this.state.boards.map( board => {
-   return(<Board router={this.props.router} refresh={this.getBoards} key={`board-${board._id}`} {...board} />);
- });
- return (<div>
+     return(<Board refresh={this.getBoards} key={`board-${board._id}`} {...board} />);
+   });
+  return (<div>
            <BoardForm addBoard={this.addBoard}/>
            <div className='row'>
              { boards }
            </div>
          </div>);
  }
+}
+
+export default Boards
